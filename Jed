@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class SortAndSearch {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        // ----- NUMBERS -----
+        System.out.print("How many numbers? ");
+        int n = input.nextInt();
+
+        int[] numbers = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = input.nextInt();
+        }
+
+        Arrays.sort(numbers);
+        System.out.println("Sorted numbers: " + Arrays.toString(numbers));
+
+        System.out.print("Number to find: ");
+        int findNumber = input.nextInt();
+
+        int numberIndex = Arrays.binarySearch(numbers, findNumber);
+
+        if (numberIndex >= 0) {
+            System.out.println("Found at index " + numberIndex);
+        } else {
+            System.out.println("Number not found");
+        }
+
+        input.nextLine(); // clears leftover Enter key
+
+        // ----- STRINGS -----
+        System.out.print("\nHow many words? ");
+        int s = input.nextInt();
+        input.nextLine();
+
+        String[] words = new String[s];
+
+        for (int i = 0; i < s; i++) {
+            System.out.print("Enter word " + (i + 1) + ": ");
+            words[i] = input.nextLine();
+        }
+
+        Arrays.sort(words);
+        System.out.println("Sorted words: " + Arrays.toString(words));
+
+        System.out.print("Word to find: ");
+        String findWord = input.nextLine();
+
+        int wordIndex = Arrays.binarySearch(words, findWord);
+
+        if (wordIndex >= 0) {
+            System.out.println("Found at index " + wordIndex);
+        } else {
+            System.out.println("Word not found");
+        }
+
+        input.close();
+    }
+}
+
